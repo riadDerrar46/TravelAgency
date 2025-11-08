@@ -1,0 +1,10 @@
+{
+ "FirstName": "John",
+ "LastName": "Doe",
+ "Email": "john.doe@example.com",
+ "PhoneNumber": "123-456-7890",
+ "Second_PhoneNumber": "098-765-4321",
+ "Third_PhoneNumber": null,
+ "IdCard_Number": "ID123456",
+ "Passport_Number": "P123456789"
+}

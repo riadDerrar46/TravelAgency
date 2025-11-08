@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[Orders]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	OrderDate DATETIME NOT NULL,
+	TotalAmount DECIMAL(18,2) NOT NULL,
+	Status INT NOT NULL DEFAULT(1), -- Default to 'En_Attente'
+	Status_Reason NVARCHAR(100) NOT NULL DEFAULT (''),
+	TravelPlan_Id INT NOT NULL,
+	ClientId INT NOT NULL,
+	IsActive BIT NOT NULL DEFAULT(1),
+	CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
+	DeleteDate DATETIME NULL,
+	CONSTRAINT FK_Orders_TravelPlans FOREIGN KEY (TravelPlan_Id) REFERENCES TravelPlans(Id),
+	CONSTRAINT FK_Orders_Clients FOREIGN KEY (ClientId) REFERENCES Clients(Id)
+)

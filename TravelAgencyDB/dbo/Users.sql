@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[Users]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	[FirstName] NVARCHAR(50) NOT NULL,
+	[LastName] NVARCHAR(50) NOT NULL,
+	[Email] NVARCHAR(100) NOT NULL ,
+	[Password] nvarchar(30) NOT NULL,
+	[PhoneNumber] NVARCHAR(15) NULL,
+	[Second_PhoneNumber] NVARCHAR(15) NULL,
+	[Third_PhoneNumber] NVARCHAR(15) NULL,
+	IdCard_Number NVARCHAR(50) NOT NULL DEFAULT '',
+	IdCard_ImgUrl NVARCHAR(255) NULL,
+	Passport_Number NVARCHAR(50) NOT NULL DEFAULT '',
+	Passport_ImgUrl NVARCHAR(255) NULL,
+	[IsActive] BIT NOT NULL DEFAULT(1),
+	[CreationDate] DATETIME NOT NULL DEFAULT GETDATE(),
+	[DeleteDate] DATETIME NULL
+)
