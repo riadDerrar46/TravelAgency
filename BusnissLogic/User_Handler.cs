@@ -13,6 +13,7 @@ public class User_Handler : IUsers_Handler
         _generic_CRUD = generic_CRUD;
     }
 
+
     public async Task Create(User user)
     {
         await _generic_CRUD.CreateAsync(user);
@@ -20,6 +21,8 @@ public class User_Handler : IUsers_Handler
 
     public async Task Delete(int id)
     {
+        var user = await _generic_CRUD.GetByIdAsync<User>(id);
+        if(user != null)
         await _generic_CRUD.DeleteAsync<User>(id);
     }
 
@@ -35,10 +38,13 @@ public class User_Handler : IUsers_Handler
 
     public async Task Update(User user)
     {
-        await _generic_CRUD.UpdateAsync(user);
+
+        var res = await _generic_CRUD.GetByIdAsync<User>(user.Id);
+        if (res != null)
+            await _generic_CRUD.UpdateAsync(user);
     }
 
-    public async Task<IEnumerable<User>> Search(string firstName, string lastName, string email,string password, string phone, string idCard_Number, string passport_Number)
+    public async Task<IEnumerable<User?>> Search(string firstName, string lastName, string email,string password, string phone, string idCard_Number, string passport_Number)
     {
         return await _generic_CRUD.Search<User>(new
         {

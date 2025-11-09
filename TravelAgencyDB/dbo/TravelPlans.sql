@@ -2,7 +2,7 @@
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	-- Add columns based on TravelPlan entity when its structure is known
-
+	Title NVARCHAR(100) NOT NULL DEFAULT '',
 	NumberOfPeople INT NOT NULL DEFAULT(1),
 	Destination NVARCHAR(255) NOT NULL DEFAULT '',
 	Description NVARCHAR(400) NOT NULL DEFAULT '',

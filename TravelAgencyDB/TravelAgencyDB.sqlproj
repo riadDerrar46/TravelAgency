@@ -89,6 +89,10 @@
     <Build Include="StoredProcedures\Order\spOrder_Search.sql" />
     <Build Include="StoredProcedures\User\spUser_Search.sql" />
     <Build Include="StoredProcedures\User\spUser_Login.sql" />
+    <Build Include="StoredProcedures\User\spUser_Delete.sql" />
+    <Build Include="StoredProcedures\TravelPlan\spTravelPlan_Delete.sql" />
+    <Build Include="StoredProcedures\Order\spOrder_Delete.sql" />
+    <Build Include="StoredProcedures\Client\spClient_Delete.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TravelAgencyDB.publish.xml" />

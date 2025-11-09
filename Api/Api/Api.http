@@ -1,38 +1,34 @@
 @Api_HostAddress = https://localhost:7175
 
-GET {{Api_HostAddress}}/weatherforecast/
+### key: Client Endpoints
+
+GET {{Api_HostAddress}}/api/Client
 Accept: application/json
 
-### key: User Endpoints
-GET {{Api_HostAddress}}/api/User/
-Accept: application/json
-###
-GET {{Api_HostAddress}}/api/User/5
+###GetId
+GET {{Api_HostAddress}}/api/Client/1
 Accept: application/json
 
-### 
-GET {{Api_HostAddress}}/User/search
-Accept: application/json
+###Create
 
-### key: Create User
-POST {{Api_HostAddress}}/api/User
+POST {{Api_HostAddress}}/api/Client/Add-Client
 Content-Type: application/json
 {
- "FirstName": "John",
- "LastName": "Doe",
- "Email": "john.doe@example.com",
- "Password": "123",
+   "FirstName": "riad",
+ "LastName": "derrar",
+ "Email": "derrar.dome@example.com",
+ "Job": "info",
  "PhoneNumber": "123-456-7890",
  "Second_PhoneNumber": "098-765-4321",
  "Third_PhoneNumber": null,
- "IdCard_Number": "ID123456",
- "Passport_Number": "P123456789"
+ "IdCard_Number": "ID1456",
+ "Passport_Number": "P1298789"
 }
 
-### key: Edit User
-POST {{Api_HostAddress}}/User/5
+### edit
+POST {{Api_HostAddress}}/api/Client/3
 Content-Type: application/json
 
 ###
-DELETE {{Api_HostAddress}}/User/3
+DELETE {{Api_HostAddress}}/api/Client/6
 Content-Type: application/json

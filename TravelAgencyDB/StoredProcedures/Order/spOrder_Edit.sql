@@ -5,7 +5,10 @@
 	@Status INT,
 	@Status_Reason NVARCHAR(100),
 	@TravelPlan_Id INT,
-	@ClientId INT
+	@ClientId INT,
+	@IsActive bit = 1,
+	@CreationDate datetime,
+	@DeleteDate datetime
 AS
 BEGIN
 	UPDATE [dbo].[Orders]
@@ -16,5 +19,6 @@ BEGIN
 		Status_Reason = @Status_Reason,
 		TravelPlan_Id = @TravelPlan_Id,
 		ClientId = @ClientId
+
 	WHERE Id = @Id;
 END

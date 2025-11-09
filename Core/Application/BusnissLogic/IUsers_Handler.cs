@@ -10,8 +10,8 @@ namespace Core.Application.BusnissLogic
         public Task Delete(int id);
         public Task Update(User User);
 
-        public Task<IEnumerable<User>> Search(string firstName, string lastName, string email, string password, string phone , 
-            string idCard_Number, string passport_Number);
+        public Task<IEnumerable<User?>> Search(string? firstName = null, string? lastName = null, string? email = null, string? password = null, string? phone = null, 
+            string? idCard_Number = null, string? passport_Number = null);
 
     }
 }
