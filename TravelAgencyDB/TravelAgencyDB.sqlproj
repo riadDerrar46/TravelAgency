@@ -67,7 +67,7 @@
     <Build Include="dbo\Users.sql" />
     <Build Include="dbo\Clients.sql" />
     <Build Include="dbo\Orders.sql" />
-    <Build Include="dbo\TravelPlans.sql" />
+    <Build Include="dbo\TravelPlan.sql" />
     <Build Include="StoredProcedures\User\spUser_Create.sql" />
     <Build Include="StoredProcedures\User\spUser_Edit.sql" />
     <Build Include="StoredProcedures\User\spUser_GetAll.sql" />

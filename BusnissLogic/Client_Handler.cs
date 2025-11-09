@@ -18,7 +18,7 @@ namespace BusnissLogic
 
         public async Task Delete(int id)
         {
-           await _generic_CRUD.DeleteAsync<Client>(id);
+            await _generic_CRUD.DeleteAsync<Client>(id);
         }
 
         public async Task<Client?> Get(int id)
@@ -26,11 +26,18 @@ namespace BusnissLogic
             return await _generic_CRUD.GetByIdAsync<Client>(id);
         }
 
-        public async Task<IEnumerable<Client>> Search(string firstName, string lastName, string job,string email, string phone, string idCard_Number, string passport_Number)
+        public async Task<IEnumerable<Client>> Search(string firstName, string lastName, string job, string email, string phone, string idCard_Number, string passport_Number)
         {
-            return await _generic_CRUD.Search<Client>(new { FirstName = firstName,LastName = lastName,PhoneNumber = phone ,
-                                                            Job = job, Email = email,        
-                                                            IdCard_Number = idCard_Number, Passport_Number = passport_Number });
+            return await _generic_CRUD.Search<Client>(new
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                PhoneNumber = phone,
+                Job = job,
+                Email = email,
+                IdCard_Number = idCard_Number,
+                Passport_Number = passport_Number
+            });
         }
 
         public async Task<IEnumerable<Client>> GetAll()

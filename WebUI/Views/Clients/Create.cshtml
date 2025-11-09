@@ -1,0 +1,139 @@
+﻿@model Core.Domain.Entities.Client
+
+@{
+    ViewData["Title"] = "Create New Client";
+}
+
+<div class="container py-5">
+    <div class="card shadow-lg border-0 mx-auto" style="max-width: 900px;">
+
+        <!-- Card Header: Stylized and prominent -->
+        <div class="card-header bg-dark text-white p-4">
+            <h1 class="h3 mb-0"><i class="bi bi-person-plus-fill me-2"></i> Register New Client</h1>
+            <p class="text-white-50 mb-0">Please fill out all required personal and identity details.</p>
+        </div>
+
+        <div class="card-body p-4 p-md-5">
+            <form asp-action="Create">
+
+<!-- Global Validation Summary -->
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger fade show mb-4" role="alert"></div>
+
+<!-- Section 1: Personal & Job Details -->
+                <h4 class="mb-3 text-primary border-bottom pb-2">Personal Information</h4>
+                <div class="row g-4 mb-4">
+
+    <!-- First Name -->
+                    <div class="col-md-6">
+                        <label asp-for="FirstName" class="form-label fw-bold"></label>
+                        <input asp-for="FirstName" class="form-control" placeholder="Enter first name" required />
+                        <span asp-validation-for="FirstName" class="text-danger small mt-1"></span>
+                    </div>
+
+    <!-- Last Name -->
+                    <div class="col-md-6">
+                        <label asp-for="LastName" class="form-label fw-bold"></label>
+                        <input asp-for="LastName" class="form-control" placeholder="Enter last name" required />
+                        <span asp-validation-for="LastName" class="text-danger small mt-1"></span>
+                    </div>
+
+    <!-- Job -->
+                    <div class="col-md-6">
+                        <label asp-for="Job" class="form-label fw-bold"></label>
+                        <input asp-for="Job" class="form-control" placeholder="Client's Profession" />
+                        <span asp-validation-for="Job" class="text-danger small mt-1"></span>
+                    </div>
+                </div>
+
+<!-- Section 2: Contact Information -->
+                <h4 class="mb-3 text-primary border-bottom pb-2">Contact Details</h4>
+                <div class="row g-4 mb-4">
+
+    <!-- Email -->
+                    <div class="col-12">
+                        <label asp-for="Email" class="form-label fw-bold"></label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input asp-for="Email" class="form-control" type="email" placeholder="example@domain.com" />
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger small mt-1"></span>
+                    </div>
+
+    <!-- Phone Number 1 (Primary) -->
+                    <div class="col-md-4">
+                        <label asp-for="PhoneNumber" class="form-label fw-bold">Primary Phone</label>
+                        <input asp-for="PhoneNumber" class="form-control" placeholder="(+XX) XXXXXXXXX" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger small mt-1"></span>
+                    </div>
+
+    <!-- Phone Number 2 (Secondary) -->
+                    <div class="col-md-4">
+                        <label asp-for="Second_PhoneNumber" class="form-label fw-bold">Secondary Phone</label>
+                        <input asp-for="Second_PhoneNumber" class="form-control" placeholder="Optional" />
+                        <span asp-validation-for="Second_PhoneNumber" class="text-danger small mt-1"></span>
+                    </div>
+
+    <!-- Phone Number 3 -->
+                    <div class="col-md-4">
+                        <label asp-for="Third_PhoneNumber" class="form-label fw-bold">Third Phone</label>
+                        <input asp-for="Third_PhoneNumber" class="form-control" placeholder="Optional" />
+                        <span asp-validation-for="Third_PhoneNumber" class="text-danger small mt-1"></span>
+                    </div>
+                </div>
+
+<!-- Section 3: Identity Documents -->
+                <h4 class="mb-3 text-primary border-bottom pb-2">Identity Documents</h4>
+                <div class="row g-4 mb-5">
+
+    <!-- ID Card Number -->
+                    <div class="col-md-6">
+                        <label asp-for="IdCard_Number" class="form-label fw-bold"></label>
+                        <input asp-for="IdCard_Number" class="form-control" placeholder="ID Card Number" />
+                        <span asp-validation-for="IdCard_Number" class="text-danger small mt-1"></span>
+                    </div>
+
+    <!-- Passport Number -->
+                    <div class="col-md-6">
+                        <label asp-for="Passport_Number" class="form-label fw-bold"></label>
+                        <input asp-for="Passport_Number" class="form-control" placeholder="Passport Number" />
+                        <span asp-validation-for="Passport_Number" class="text-danger small mt-1"></span>
+                    </div>
+
+    <!-- ID Card Image URL -->
+                    <div class="col-md-6">
+                        <label asp-for="IdCard_ImgUrl" class="form-label fw-bold">ID Card Image URL</label>
+                        <input asp-for="IdCard_ImgUrl" class="form-control" placeholder="Link to document image" />
+                        <span asp-validation-for="IdCard_ImgUrl" class="text-danger small mt-1"></span>
+                    </div>
+
+    <!-- Passport Image URL -->
+                    <div class="col-md-6">
+                        <label asp-for="Passport_ImgUrl" class="form-label fw-bold">Passport Image URL</label>
+                        <input asp-for="Passport_ImgUrl" class="form-control" placeholder="Link to document image" />
+                        <span asp-validation-for="Passport_ImgUrl" class="text-danger small mt-1"></span>
+                    </div>
+                </div>
+
+<!-- Submit Button (Prominent) -->
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg mt-3">
+                        <i class="bi bi-check-circle-fill me-2"></i> Complete Client Registration
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Back to List Link (Outside Card) -->
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="text-decoration-none text-secondary">
+            <i class="bi bi-arrow-left"></i> Back to Client List
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

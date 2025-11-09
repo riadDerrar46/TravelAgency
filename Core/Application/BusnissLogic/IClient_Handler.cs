@@ -10,6 +10,6 @@ public interface IClient_Handler
     public Task Delete(int id);
     public Task Update(Client client);
 
-    public Task<IEnumerable<Client>> Search(string firstName, string lastName,string job, string email, string phone, string idCard_Number, string passport_Number);
-    
+    public Task<IEnumerable<Client>> Search(string firstName, string lastName, string job, string email, string phone, string idCard_Number, string passport_Number);
+
 }

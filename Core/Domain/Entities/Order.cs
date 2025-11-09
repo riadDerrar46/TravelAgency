@@ -11,7 +11,6 @@ namespace Core.Domain.Entities
 
         public int TravelPlan_Id { get; set; }
         public int ClientId { get; set; }
-        public Client? Client { get; set; }
 
 
     }

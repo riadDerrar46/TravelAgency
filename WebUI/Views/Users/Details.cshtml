@@ -1,0 +1,39 @@
+@model Core.Domain.Entities.User
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<div class="container py-5">
+    <div class="card mx-auto shadow" style="max-width:900px;">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">User Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5>@Model.FirstName @Model.LastName</h5>
+                    <p class="text-muted">@Model.Email</p>
+
+                    <dl class="row mt-3">
+                        <dt class="col-sm-3">Phone</dt>
+                        <dd class="col-sm-9">@Model.PhoneNumber</dd>
+                        <dt class="col-sm-3">Second Phone</dt>
+                        <dd class="col-sm-9">@Model.Second_PhoneNumber</dd>
+                        <dt class="col-sm-3">Passport</dt>
+                        <dd class="col-sm-9">@Model.Passport_Number</dd>
+                        <dt class="col-sm-3">Created</dt>
+                        <dd class="col-sm-9">@Model.CreationDate.ToString("yyyy-MM-dd")</dd>
+                    </dl>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="~/images/profile-placeholder.png" alt="Profile" class="img-fluid rounded-circle mb-3" style="max-width:160px;" />
+                    <div class="d-grid gap-2">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary"><img src="~/images/edit.svg" alt="Edit" class="action-icon me-1"/> Edit</a>
+                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger"><img src="~/images/delete.svg" alt="Delete" class="action-icon me-1"/> Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

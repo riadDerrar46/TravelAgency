@@ -1,0 +1,10 @@
+.action-icon{width:18px;height:18px;vertical-align:middle}
+.btn img.action-icon{filter: none}
+
+/* Slight hover effect for action images */
+.table tr:hover img.action-icon{transform:scale(1.05);transition:transform .12s ease-in-out}
+
+/* Card and form refinements */
+.card-header.bg-primary{background:linear-gradient(135deg,#3b82f6,#06b6d4)}
+.card{border-radius:12px}
+

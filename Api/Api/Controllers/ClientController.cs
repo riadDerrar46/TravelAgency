@@ -102,7 +102,7 @@ public class ClientController : Controller
         if (Client == null)
             return BadRequest("Client data is null.");
         var res = await _Clients_Handler.Search(Client.FirstName, Client.LastName, Client.Email,
-           Client.Job,  Client.PhoneNumber, Client.IdCard_Number, Client.Passport_Number);
+           Client.Job, Client.PhoneNumber, Client.IdCard_Number, Client.Passport_Number);
         return Ok(res);
     }
 

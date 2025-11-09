@@ -1,11 +1,9 @@
 ﻿using Core.Application.BusnissLogic;
 using Core.Domain.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Metadata.Ecma335;
-using System.Threading.Tasks;
 
 namespace Api.Controllers;
+
 [Route("api/[controller]")]
 [ApiController]
 public class UserController : Controller
@@ -28,7 +26,7 @@ public class UserController : Controller
     [HttpGet("{id}")]
     public async Task<ActionResult> Details(int id)
     {
-       var res = await  _users_Handler.Get(id);
+        var res = await _users_Handler.Get(id);
         if (res == null)
             return NotFound("user is not in DB");
         return Ok(res);
@@ -51,16 +49,16 @@ public class UserController : Controller
         }
         catch (Exception ex)
         {
-            
-                return BadRequest(user.CreationDate +"   " + ex.Message);
-            
+
+            return BadRequest(user.CreationDate + "   " + ex.Message);
+
         }
     }
 
 
     // POST: UserController/Edit/5
     [HttpPut("{id}")]
-    public async Task<ActionResult> EditAsync(int id ,User user)
+    public async Task<ActionResult> EditAsync(int id, User user)
     {
         if (user == null)
             return NotFound("Try SomeWhere else");
@@ -70,7 +68,7 @@ public class UserController : Controller
             await _users_Handler.Update(user);
             return Ok("User updated");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             return BadRequest(ex.Message);
         }
@@ -82,15 +80,15 @@ public class UserController : Controller
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {
-        var res =  await _users_Handler.Get(id);
-        if(res == null)
+        var res = await _users_Handler.Get(id);
+        if (res == null)
             return NotFound("User is not in DB");
         try
         {
             await _users_Handler.Delete(id);
             return NoContent();
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             return BadRequest(ex);
         }
@@ -106,5 +104,5 @@ public class UserController : Controller
             user.Password, user.PhoneNumber, user.IdCard_Number, user.Passport_Number);
         return Ok(res);
     }
-    
+
 }

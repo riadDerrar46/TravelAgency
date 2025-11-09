@@ -1,0 +1,23 @@
+@model Core.Domain.Entities.User
+
+@{
+    ViewData["Title"] = "Delete User";
+}
+
+<div class="container py-5">
+    <div class="card mx-auto shadow" style="max-width:720px;">
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">Confirm Delete</h4>
+        </div>
+        <div class="card-body">
+            <p>Are you sure you want to delete <strong>@Model.FirstName @Model.LastName</strong>?</p>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex justify-content-end">
+                    <a asp-action="Index" class="btn btn-outline-secondary me-2">Cancel</a>
+                    <button type="submit" class="btn btn-danger"><img src="~/images/delete.svg" alt="Delete" class="action-icon me-1"/> Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

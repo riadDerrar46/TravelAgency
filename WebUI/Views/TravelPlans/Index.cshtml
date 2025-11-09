@@ -1,0 +1,63 @@
+@model IEnumerable<Core.Domain.Entities.TravelPlan>
+
+@{
+    ViewData["Title"] = "Travel Plans";
+}
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="h4 mb-0">Travel Plans</h2>
+        <a asp-action="Create" class="btn btn-primary">
+            <img src="~/images/edit-add.svg" alt="Add" class="action-icon me-1" /> New Plan
+        </a>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">No travel plans found.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Destination</th>
+                        <th>People</th>
+                        <th>Budget</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in Model)
+                    {
+                        <tr>
+                            <td>@p.Id</td>
+                            <td>@p.Title</td>
+                            <td>@p.Destination</td>
+                            <td>@p.NumberOfPeople</td>
+                            <td>@p.Budget.ToString("C")</td>
+                            <td>@(p.StartDate?.ToString("yyyy-MM-dd") ?? "-")</td>
+                            <td>@(p.EndDate?.ToString("yyyy-MM-dd") ?? "-")</td>
+                            <td>
+                                <a asp-action="Details" asp-controller="TravelPlans" asp-route-id="@p.Id" class="btn btn-sm btn-outline-secondary me-1">
+                                    <img src="~/images/informations.png" alt="View" class="action-icon table-action-icon" />
+                                </a>
+                                <a asp-action="Edit" asp-controller="TravelPlans" asp-route-id="@p.Id" class="btn btn-sm btn-outline-primary me-1">
+                                    <img src="~/images/editer.png" alt="Edit" class="action-icon table-action-icon" />
+                                </a>
+                                <a asp-action="Delete" asp-controller="TravelPlans" asp-route-id="@p.Id" class="btn btn-sm btn-outline-danger me-1">
+                                    <img src="~/images/delete.png" alt="Delete" class="action-icon table-action-icon" />
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

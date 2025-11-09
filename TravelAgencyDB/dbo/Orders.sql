@@ -10,6 +10,6 @@
 	IsActive BIT NOT NULL DEFAULT(1),
 	CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
 	DeleteDate DATETIME NULL,
-	CONSTRAINT FK_Orders_TravelPlans FOREIGN KEY (TravelPlan_Id) REFERENCES TravelPlans(Id),
+	CONSTRAINT FK_Orders_TravelPlans FOREIGN KEY (TravelPlan_Id) REFERENCES TravelPlan(Id),
 	CONSTRAINT FK_Orders_Clients FOREIGN KEY (ClientId) REFERENCES Clients(Id)
 )

@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[TravelPlans]
+﻿CREATE TABLE [dbo].[TravelPlan]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	-- Add columns based on TravelPlan entity when its structure is known

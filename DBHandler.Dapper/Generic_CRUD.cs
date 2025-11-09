@@ -48,27 +48,27 @@ namespace DBHandler.Dapper
 
         public async Task DeleteAsync<T>(int id) where T : class
         {
-           var entityName = typeof(T).Name;
-            await  ExecuteCommand($"sp{entityName}_Delete", new { Id = id });
+            var entityName = typeof(T).Name;
+            await ExecuteCommand($"sp{entityName}_Delete", new { Id = id });
         }
 
 
         public async Task<T> GetByIdAsync<T>(int id) where T : class
         {
-           var entityName = typeof(T).Name;
+            var entityName = typeof(T).Name;
             var result = await LoadTable<T, dynamic>($"sp{entityName}_GetByID", new { Id = id });
             return result.FirstOrDefault();
         }
 
         public async Task UpdateAsync<T>(T entity) where T : class
         {
-           var entityName = typeof(T).Name;
-            await  ExecuteCommand<T>($"sp{entityName}_Edit", entity);
+            var entityName = typeof(T).Name;
+            await ExecuteCommand<T>($"sp{entityName}_Edit", entity);
         }
 
         public async Task<IEnumerable<T>> GetAllAsync<T>() where T : class
         {
-           var entityName = typeof(T).Name;
+            var entityName = typeof(T).Name;
             var result = await LoadTable<T, dynamic>($"sp{entityName}_GetAll", new { });
             return result.ToList();
         }
@@ -76,7 +76,7 @@ namespace DBHandler.Dapper
 
 
 
-        
+
         public async Task<IEnumerable<T>> Search<T>(dynamic param) where T : class
         {
             var entityName = typeof(T).Name;

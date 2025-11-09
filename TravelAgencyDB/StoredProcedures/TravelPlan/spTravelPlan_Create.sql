@@ -11,7 +11,7 @@
 	@DeleteDate datetime
 AS
 BEGIN
-	INSERT INTO [dbo].[TravelPlans] (
+	INSERT INTO [dbo].[TravelPlan] (
 		Title ,NumberOfPeople, Destination, Description, StartDate, EndDate, Budget, IsActive, CreationDate, DeleteDate
 	)
 	VALUES (

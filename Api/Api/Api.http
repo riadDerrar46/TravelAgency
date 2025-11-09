@@ -1,4 +1,33 @@
-@Api_HostAddress = https://localhost:7175
+@Api_HostAddress = https://localhost:44375
+
+### key : User Endpoint 
+
+GET {{Api_HostAddress}}/api/User
+Accept: application/json
+###
+GET {{Api_HostAddress}}/api/User/5
+Aaccept: application/json
+###
+POST {{Api_HostAddress}}/api/User/Add-User
+Content-Type: application/json
+{}
+###
+POST {{Api_HostAddress}}/api/User/Search-User
+Content-Type: application/json
+{}
+###
+PUT {{Api_HostAddress}}/api/User
+Content-Type: application/json
+{
+}
+###
+DELETE {{Api_HostAddress}}/api/User/1
+Content-Type: application/json
+{
+
+}
+###
+
 
 ### key: Client Endpoints
 
@@ -10,7 +39,6 @@ GET {{Api_HostAddress}}/api/Client/1
 Accept: application/json
 
 ###Create
-
 POST {{Api_HostAddress}}/api/Client/Add-Client
 Content-Type: application/json
 {
@@ -25,10 +53,100 @@ Content-Type: application/json
  "Passport_Number": "P1298789"
 }
 
-### edit
-POST {{Api_HostAddress}}/api/Client/3
+### 
+//edit
+PUT {{Api_HostAddress}}/api/Client/3
 Content-Type: application/json
 
 ###
 DELETE {{Api_HostAddress}}/api/Client/6
 Content-Type: application/json
+
+
+###
+
+#### key: Order Endpoints
+
+GET {{Api_HostAddress}}/api/Order
+Accept: application/json
+
+###GetId
+GET {{Api_HostAddress}}/api/Order/1
+Accept: application/json
+
+###Create
+POST {{Api_HostAddress}}/api/Order/Add-Order
+Content-Type: application/json
+
+{
+  "orderDate": "2025-11-09T10:30:00",
+  "totalAmount": 2499.99,
+  "status": 1,
+  "status_Reason": "Awaiting payment confirmation",
+  "travelPlan_Id": 1,
+  "clientId":1,
+  "isActive": true,
+  "creationDate": "2025-11-09T10:30:00",
+  "deleteDate": null
+}
+
+### 
+//edit
+PUT {{Api_HostAddress}}/api/Order/3
+Content-Type: application/json
+
+###
+DELETE {{Api_HostAddress}}/api/Order/6
+Content-Type: application/json
+
+
+### 
+
+#### key: TravelPlan Endpoints
+
+GET {{Api_HostAddress}}/api/TravelPlan
+Accept: application/json
+
+###GetId
+GET {{Api_HostAddress}}/api/TravelPlan/1
+Accept: application/json
+
+###Create
+POST {{Api_HostAddress}}/api/TravelPlan/Add-TravelPlan
+Content-Type: application/json
+{
+  "title": "Family Vacation in Maldives",
+  "numberOfPeople": 4,
+  "destination": "Dubai",
+  "description": "A 5-day family trip including desert safari, Burj Khalifa visit, and shopping tours.",
+  "startDate": "2025-12-21T09:00:00",
+  "endDate": "2025-12-26T21:00:00",
+  "budget": 5000
+}
+
+### 
+//Search Method
+
+POST {{Api_HostAddress}}/api/TravelPlan/Search-TravelPlan
+Content-Type : application/json
+{
+"Title" : "dubai",
+"NumberOfPeople" : 4,
+"Budget" : 8500.5
+}
+### EDIT
+PUT {{Api_HostAddress}}/api/TravelPlan/3
+Content-Type: application/json
+{
+  "Id" : 2
+}
+###
+DELETE {{Api_HostAddress}}/api/TravelPlan/6
+Content-Type: application/json
+{
+  "Id": 1
+}
+
+### key: TravelPlan Endpoints
+
+

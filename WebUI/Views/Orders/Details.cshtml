@@ -1,0 +1,39 @@
+@model Core.Domain.Entities.Order
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<div class="container py-5">
+    <div class="card mx-auto shadow" style="max-width:900px;">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">Order Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5>Order #@Model.Id</h5>
+                    <p class="text-muted">Amount: @Model.TotalAmount.ToString("C")</p>
+
+                    <dl class="row mt-3">
+                        <dt class="col-sm-3">Order Date</dt>
+                        <dd class="col-sm-9">@Model.OrderDate.ToString("yyyy-MM-dd")</dd>
+                        <dt class="col-sm-3">Status</dt>
+                        <dd class="col-sm-9">@Model.Status</dd>
+                        <dt class="col-sm-3">Client</dt>
+                        <dd class="col-sm-9">@Model.ClientId</dd>
+                        <dt class="col-sm-3">Travel Plan</dt>
+                        <dd class="col-sm-9">@Model.TravelPlan_Id</dd>
+                    </dl>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="~/images/order-placeholder.png" alt="Order" class="img-fluid mb-3" style="max-width:160px;" />
+                    <div class="d-grid gap-2">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary"><img src="~/images/edit.svg" alt="Edit" class="action-icon me-1"/> Edit</a>
+                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger"><img src="~/images/delete.svg" alt="Delete" class="action-icon me-1"/> Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

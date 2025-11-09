@@ -22,8 +22,8 @@ public class User_Handler : IUsers_Handler
     public async Task Delete(int id)
     {
         var user = await _generic_CRUD.GetByIdAsync<User>(id);
-        if(user != null)
-        await _generic_CRUD.DeleteAsync<User>(id);
+        if (user != null)
+            await _generic_CRUD.DeleteAsync<User>(id);
     }
 
     public async Task<User?> Get(int id)
@@ -44,7 +44,7 @@ public class User_Handler : IUsers_Handler
             await _generic_CRUD.UpdateAsync(user);
     }
 
-    public async Task<IEnumerable<User?>> Search(string firstName, string lastName, string email,string password, string phone, string idCard_Number, string passport_Number)
+    public async Task<IEnumerable<User?>> Search(string firstName, string lastName, string email, string password, string phone, string idCard_Number, string passport_Number)
     {
         return await _generic_CRUD.Search<User>(new
         {
@@ -57,9 +57,9 @@ public class User_Handler : IUsers_Handler
             Passport_Number = passport_Number
         });
     }
-    public async Task<User?> Login(string email,string password)
+    public async Task<User?> Login(string email, string password)
     {
-        var users = await _generic_CRUD.Search<User>(new { Email = email,Password = password });
+        var users = await _generic_CRUD.Search<User>(new { Email = email, Password = password });
         return users.FirstOrDefault();
     }
 

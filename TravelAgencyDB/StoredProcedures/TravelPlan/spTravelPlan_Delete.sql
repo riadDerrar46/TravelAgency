@@ -2,7 +2,7 @@
 @Id INT
 AS
 BEGIN
- UPDATE [dbo].[TravelPlans]
+ UPDATE [dbo].[TravelPlan]
  set IsActive = 0,
 	 DeleteDate = GETDATE()
  WHERE Id = @Id;

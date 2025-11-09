@@ -1,0 +1,59 @@
+@model Core.Domain.Entities.TravelPlan
+
+@{
+    ViewData["Title"] = "Create Travel Plan";
+}
+
+<div class="container py-5">
+    <div class="card shadow-lg border-0 mx-auto" style="max-width: 900px;">
+        <div class="card-header bg-primary text-white p-3">
+            <h4 class="mb-0">New Travel Plan</h4>
+        </div>
+        <div class="card-body p-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="Title" class="form-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Destination" class="form-label"></label>
+                        <input asp-for="Destination" class="form-control" />
+                        <span asp-validation-for="Destination" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="NumberOfPeople" class="form-label"></label>
+                        <input asp-for="NumberOfPeople" class="form-control" type="number" />
+                        <span asp-validation-for="NumberOfPeople" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Budget" class="form-label"></label>
+                        <input asp-for="Budget" class="form-control" type="number" step="0.01" />
+                        <span asp-validation-for="Budget" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="StartDate" class="form-label"></label>
+                        <input asp-for="StartDate" class="form-control" type="date" />
+                        <span asp-validation-for="StartDate" class="text-danger small"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="Description" class="form-label"></label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                        <span asp-validation-for="Description" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="mt-4 d-flex justify-content-end">
+                    <a asp-action="Index" class="btn btn-outline-secondary me-2">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

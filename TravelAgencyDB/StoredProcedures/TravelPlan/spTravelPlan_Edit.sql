@@ -6,10 +6,13 @@
 	@Description NVARCHAR(400),
 	@StartDate DATETIME,
 	@EndDate DATETIME,
-	@Budget DECIMAL(18,2)
+	@Budget DECIMAL(18,2),
+	@IsActive bit = 1,
+	@CreationDate datetime,
+	@DeleteDate datetime
 AS
 BEGIN
-	UPDATE [dbo].[TravelPlans]
+	UPDATE [dbo].[TravelPlan]
 	SET
 		Title = @Title ,
 		NumberOfPeople = @NumberOfPeople,
@@ -17,6 +20,9 @@ BEGIN
 		Description = @Description,
 		StartDate = @StartDate,
 		EndDate = @EndDate,
-		Budget = @Budget
+		Budget = @Budget,
+		IsActive = @IsActive ,
+	    CreationDate = @CreationDate ,
+	     DeleteDate = @DeleteDate
 	WHERE Id = @Id;
 END

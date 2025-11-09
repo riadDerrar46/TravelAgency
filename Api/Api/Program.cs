@@ -15,11 +15,11 @@ builder.Services.AddSwaggerGen();
 //Dependancy Injection
 
 builder.Services.AddSingleton<IGeneric_CRUD, Generic_CRUD>();
-builder.Services.AddSingleton<ITravelAgency_DbContext,TravelAgency_DbContext>();
-builder.Services.AddSingleton<IClient_Handler,Client_Handler>();
-builder.Services.AddSingleton<IUsers_Handler,User_Handler>();
-builder.Services.AddSingleton<IOrder_Handler,Order_Handler>();
-builder.Services.AddSingleton<ITravelPlans_Handler,TravelPlans_Handler>();
+builder.Services.AddSingleton<ITravelAgency_DbContext, TravelAgency_DbContext>();
+builder.Services.AddSingleton<IClient_Handler, Client_Handler>();
+builder.Services.AddSingleton<IUsers_Handler, User_Handler>();
+builder.Services.AddSingleton<IOrder_Handler, Order_Handler>();
+builder.Services.AddSingleton<ITravelPlan_Handler, TravelPlan_Handler>();
 
 
 

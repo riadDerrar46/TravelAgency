@@ -11,7 +11,7 @@ namespace Core.Application.BusnissLogic
         public Task Update(Order Order);
 
         public Task<IEnumerable<Order>> GetOrdersByClientId(int clientId);
-       
+
 
     }
 }
